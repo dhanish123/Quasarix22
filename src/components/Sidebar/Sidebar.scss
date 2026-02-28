@@ -71,6 +71,9 @@
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transition: opacity 0.2s;
     overflow: hidden;
+    &.is-open{
+  z-index: 71,
+}
 
     &:hover {
         opacity: 0.8;
