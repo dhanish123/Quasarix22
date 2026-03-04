@@ -2,7 +2,7 @@ import React from 'react';
 import './MeetLily.scss';
 import lilyImage from '../../assets/images/meet-lily.jpg';
 
-const FloralLineartIcon = () => (
+const FloralLineartIcon = () => ( 
   <svg
     viewBox="0 0 400 150"
     width="100%"
