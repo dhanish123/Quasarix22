@@ -2,6 +2,9 @@ import React from 'react';
 import './MeetLily.scss';
 import lilyImage from '../../assets/images/meet-lily.jpg';
 
+// SVG = Scalable Vector Graphics
+// It displays a custom SVG drawing.
+// It’s a way to draw shapes using code.
 const FloralLineartIcon = () => ( 
   <svg
     viewBox="0 0 400 150"
