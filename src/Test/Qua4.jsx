@@ -240,7 +240,7 @@ const Qua4 = () => {
 
             <tbody>
               {mapping.map((m, i) => (
-                <tr key={i}>
+                <tr key={i} style={{ textAlign: "center" }}>
                   <td>{m.key}</td>
                   <td>{m.path}</td>
                   <td>{m.type}</td>
