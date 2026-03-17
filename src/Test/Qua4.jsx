@@ -54,9 +54,11 @@ const DroppableField = ({ path, value }) => {
         background: isOver ? "#d1ffd1" : "#fafafa",
         borderRadius: "6px",
         minHeight: "35px",
+        fontFamily: "monospace",
       }}
     >
-      <strong>{path.split(".").pop()}</strong> : {value || "Drop here"}
+      <strong>"{path.split(".").pop()}"</strong> :{" "}
+      {typeof value === "string" ? `"${value}"` : value}
     </div>
   );
 };
@@ -64,15 +66,15 @@ const DroppableField = ({ path, value }) => {
 const Qua4 = () => {
   const [jsonData, setJsonData] = useState({
     payee: {
-      msisdn: "",
+      msisdn: "MSISDN",
       transfer_type: "WALLET",
-      wallet_id: 7436724353,
+      wallet_id: 2913292137,
     },
-    reference: "3452764528",
+    reference: "1765415439",
     pin: "encrypted_pin_value",
     transaction: {
-      amount: 123,
-      id: "3452764528",
+      amount: 321,
+      id: "1765415439",
     },
   });
 
@@ -86,7 +88,7 @@ const Qua4 = () => {
     { key: "TRANSFER_TYPE", type: "string" },
   ];
 
-  // 🔥 Sensors for mobile + desktop
+  // 🔥 Sensors
   const sensors = useSensors(
     useSensor(MouseSensor),
     useSensor(TouchSensor, {
@@ -110,7 +112,6 @@ const Qua4 = () => {
     const keys = path.split(".");
     let temp = updatedJson;
 
-    // 🔥 get original value
     const originalValue = keys.reduce((acc, k) => acc[k], jsonData);
 
     keys.forEach((k, i) => {
@@ -154,7 +155,7 @@ const Qua4 = () => {
     setMapping(updated);
   };
 
-  // 🔹 Delete Mapping + Restore JSON
+  // 🔹 Delete Mapping
   const deleteMapping = (index) => {
     const item = mapping[index];
 
@@ -182,8 +183,9 @@ const Qua4 = () => {
       if (typeof obj[key] === "object") {
         return (
           <div key={path} style={{ marginLeft: 15 }}>
-            <strong>{key}:</strong>
+            <strong>"{key}"</strong>: {"{"}
             {renderJSON(obj[key], path)}
+            {"}"}
           </div>
         );
       }
@@ -207,8 +209,17 @@ const Qua4 = () => {
         {/* JSON */}
         <div style={{ flex: "2 1 350px" }}>
           <h3>JSON Preview</h3>
-          <div style={{ border: "1px solid black", padding: 12 }}>
+          <div
+            style={{
+              border: "1px solid black",
+              padding: 12,
+              fontFamily: "monospace",
+              background: "#fafafa",
+            }}
+          >
+            {"{"}
             {renderJSON(jsonData)}
+            {"}"}
           </div>
         </div>
 
@@ -245,13 +256,11 @@ const Qua4 = () => {
                   <td>
                     <button
                       onClick={() => deleteMapping(i)}
-                      title="Delete"
                       style={{
                         background: "none",
                         border: "none",
                         cursor: "pointer",
                         color: "#ff4d4f",
-                        fontSize: "16px",
                       }}
                     >
                       <FaTrash />
