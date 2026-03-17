@@ -11,7 +11,7 @@ import {
 } from "@dnd-kit/core";
 import { FaTrash } from "react-icons/fa";
 
-// 🔹 Draggable Keyword
+//  Draggable Keyword
 const DraggableItem = ({ keyword }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: keyword.key,
@@ -38,7 +38,7 @@ const DraggableItem = ({ keyword }) => {
   );
 };
 
-// 🔹 Droppable Field
+//  Droppable Field
 const DroppableField = ({ path, value }) => {
   const { isOver, setNodeRef } = useDroppable({
     id: path,
@@ -68,13 +68,13 @@ const Qua4 = () => {
     payee: {
       msisdn: "MSISDN",
       transfer_type: "WALLET",
-      wallet_id: 2913292137,
+      wallet_id: 5439872451,
     },
-    reference: "1765415439",
+    reference: "1234567891",
     pin: "encrypted_pin_value",
     transaction: {
-      amount: 321,
-      id: "1765415439",
+      amount: 123,
+      id: "1234567891",
     },
   });
 
@@ -88,7 +88,7 @@ const Qua4 = () => {
     { key: "TRANSFER_TYPE", type: "string" },
   ];
 
-  // 🔥 Sensors
+  // Sensors
   const sensors = useSensors(
     useSensor(MouseSensor),
     useSensor(TouchSensor, {
@@ -100,7 +100,7 @@ const Qua4 = () => {
     useSensor(PointerSensor)
   );
 
-  // 🔹 Drag End
+  //  Drag End
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (!over) return;
@@ -148,14 +148,14 @@ const Qua4 = () => {
     });
   };
 
-  // 🔹 Toggle Active
+  // Toggle Active
   const toggleActive = (index) => {
     const updated = [...mapping];
     updated[index].active = !updated[index].active;
     setMapping(updated);
   };
 
-  // 🔹 Delete Mapping
+  // Delete Mapping
   const deleteMapping = (index) => {
     const item = mapping[index];
 
@@ -175,7 +175,7 @@ const Qua4 = () => {
     setMapping((prev) => prev.filter((_, i) => i !== index));
   };
 
-  // 🔹 Render JSON
+  // Render JSON
   const renderJSON = (obj, parent = "") => {
     return Object.keys(obj).map((key) => {
       const path = parent ? `${parent}.${key}` : key;
