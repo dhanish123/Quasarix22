@@ -229,7 +229,7 @@ const Qua4 = () => {
 
           <table border="1" cellPadding="8" width="100%">
             <thead>
-              <tr>
+                <tr style={{ textAlign: "center" }}>
                 <th>Keyword</th>
                 <th>Path</th>
                 <th>Type</th>
