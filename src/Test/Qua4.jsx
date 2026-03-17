@@ -224,7 +224,7 @@ const Qua4 = () => {
         </div>
 
         {/* TABLE */}
-        <div style={{ flex: "2 1 350px" }}>
+        <div style={{ flex: "2 1 350px", overflow: "auto" }}>
           <h3>Mapping Table</h3>
 
           <table border="1" cellPadding="8" width="100%">
